@@ -30,7 +30,7 @@
                 <li th:if="${session.loggedInUser != null}" class="nav-item">
                     <a class="nav-link" href="/offers/all">All Offers</a>
                 </li>
-                <li th:if="${session.loggedInUser != null && session.loggedInUser.user.role.role == 'Admin'}"
+                <li th:if="${session.loggedInUser != null && session.loggedInUser.user.role.role == T(bg.softuni.mobilelele.model.enums.Role).Admin}"
                     class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
