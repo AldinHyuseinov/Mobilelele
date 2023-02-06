@@ -38,7 +38,7 @@ public class ModelController {
         }
         modelService.addVehicleModel(vehicleModel);
 
-        return "redirect:/";
+        return "redirect:/brands/all";
     }
 
     @GetMapping("/delete")
@@ -57,6 +57,6 @@ public class ModelController {
             return "redirect:/models/delete";
         }
 
-        return "redirect:/";
+        return "redirect:/brands/all";
     }
 }
