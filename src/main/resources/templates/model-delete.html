@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>MobiLeLeLe</title>
+  <link rel="stylesheet" href="/css/reset-css.css"/>
+  <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+  <script src="/js/jquery-3.5.1.slim.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div th:replace="fragments/navbar">Navbar</div>
+
+<div class="container">
+  <h2 class="text-center text-white">Delete Model</h2>
+  <form th:method="post" th:action="@{/models/delete}"
+        class="main-form mx-auto col-md-8 d-flex flex-column justify-content-center">
+  <div class="form-group col-md-6 mb-3">
+    <label class="text-center text-white font-weight-bold" for="model">Model</label>
+    <select id="model" class="form-control" name="modelId">
+      <option value="">- Select a model -</option>
+      <optgroup label="Brand name">
+        <option th:each="m : ${models}" th:value="${m.id}" th:text="${m.brand.name} + ' ' + ${m.name}"></option>
+      </optgroup>
+    </select>
+    <p th:if="${modelNotDeleted}" th:text="${modelNotDeleted}" class="errors alert alert-danger"></p>
+  </div>
+    <div class="row">
+      <div class="col col-md-4">
+        <div class="button-holder d-flex">
+          <input type="submit" class="btn btn-info btn-lg" value="Delete Model"/>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div th:replace="fragments/footer">Footer</div>
+
+</body>
+</html>
